@@ -1,8 +1,7 @@
 require 'machine_learning/version'
 require 'machine_learning/example'
 require 'machine_learning/classifier'
-
-Dir['machine_learning/classifiers/*.rb'].each { |c| require c }
+require 'machine_learning/classifiers/support_vector_machine'
 
 module MachineLearning
 
