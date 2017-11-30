@@ -2,8 +2,6 @@
 
 A pure ruby implementation of a variety of machine learning algorithms. This grew out of my own miniature library I developed for CS 5450.
 
-TODO: Delete this and the text above, and describe your gem
-
 ## Installation
 
 Add this line to your application's Gemfile:
