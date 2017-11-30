@@ -22,7 +22,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Gather some data and instantiate an Example for each one.
+2. Set the acceptable labels : `MachineLearning::Classifier.acceptable_labels = your_acceptable_labels`
+3. Instantiate the classifier of your choice and do what you want
+
+You can also design your own classifier and include it--just extend the `MachineLearning::Classifier` class and implement the constructor and `guess_for` method.
 
 ## Development
 

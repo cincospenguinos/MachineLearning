@@ -7,9 +7,13 @@ module MachineLearning
 	  attr_reader :tradeoff
 
 	  def initialize(examples, learning_rate, tradeoff, epochs=10)
-	    @weights = [ @@random.rand(0.0...1.0) ] # Including the bias
+	    @weights = []
 
-	    Speech.feature_list.size.times { @weights << @@random.rand(0.0...1.0) }
+	    examples.each do |e|
+	    	while e.features.size > @weights.size do
+	    		@weights << @@random.rand(0.0...1.0)
+	    	end
+	    end
 
 	    epochs.times do
 	      examples.shuffle
@@ -36,6 +40,10 @@ module MachineLearning
 	  private
 
 	  def dot_product(example)
+	  	while example.features.size > @weights.size do
+	    	@weights << @@random.rand(0.0...1.0)
+	    end
+	    
 	    res = 0.0
 	    example.features.each { |f| res += @weights[f] unless @weights[f].nil? }
 	    res
