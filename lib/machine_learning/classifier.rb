@@ -1,4 +1,6 @@
 module MachineLearning
+
+	# A generic classifier. All classifiers must extend this class.
 	class Classifier
 
 		# Class variables

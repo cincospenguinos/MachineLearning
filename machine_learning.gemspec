@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Pure Ruby machine learning library.}
   spec.description   = %q{A purely Ruby implementation of a variety of machine learning algorithms.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/cincospenguinos/MachineLearning"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

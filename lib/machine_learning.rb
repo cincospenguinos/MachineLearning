@@ -5,6 +5,31 @@ require 'machine_learning/classifiers/support_vector_machine'
 
 module MachineLearning
 
+	# Use cross validation to train the best classifier. Requires a single code block
+	# that instantiates the classifier variable using the given training set.
+	def cross_validate(dataset, split_size=4)
+		splits = split_dataset(dataset, split_size)
+		best_classifier = nil
+		high_score = 0.0
+
+		(0..(split_size - 1)).each do |i|
+			training = []
+			((i + 1)..(split_size)).each { |j| training += splits[j % split_size] }
+			testing = splits[i]
+
+			classifier = nil
+			yield(classifier, training)
+			accuracy = accuracy(classifier, testing)
+
+			if accuracy > high_score
+				high_score = accuracy
+				best_classifier = classifier
+			end
+		end
+
+		best_classifier
+	end
+
 	# Returns the accuracy of the given classifier and test set
   def accuracy(classifier, test_set)
   	correct = 0.0
